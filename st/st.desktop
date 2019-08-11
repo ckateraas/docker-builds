@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=st
+Comment=A simple terminal emulator.
+GenericName=Terminal
+Exec=/usr/local/bin/st
+Icon=utilities-terminal
+Type=Application
+StartupNotify=true
+Categories=command;prompt;cmd;commandline;run;
+MimeType=text/plain
