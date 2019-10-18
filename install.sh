@@ -2,12 +2,6 @@
 
 set -e
 
-apt install -y snapd git vim
-
-echo "export PATH=$PATH:/snap/bin" >> /etc/bash.bashrc
-
-snap install docker
-
 cd fish
 ./install.sh
 

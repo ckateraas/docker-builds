@@ -2,10 +2,18 @@
 
 Builds several programs and utilities using Docker.
 
+## Dependencies
+
+To build these programs you need to install the following dependencies:
+
+- `docker`
+- `git`
+- `vim` or another editor
+
 ## Building
 
 Run the `install.sh` script in the root of this project to build _all_ the programs.
-Otherwise, you can run `install.sh` inside the program(s) you want built.
+Otherwise, you can run `install.sh` inside the program folder(s) you want built.
 
 ## Platforms and distributions
 
