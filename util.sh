@@ -1,39 +1,40 @@
 #! /usr/bin/env bash
 
 set -e
+GIT_REPO_DIR="./git-repo"
 
 function git-clone() {
   echo "Fetching Git repo $1"
-  if [[ ! -d "$2" ]]; then
-    git clone -q "$1" "$2"
+  if [[ ! -d "$GIT_REPO_DIR" ]]; then
+    git clone -q "$1" $GIT_REPO_DIR
   else
-    echo "Skipping since $2 already exists"
+    echo "Skipping since $GIT_REPO_DIR already exists"
   fi
 }
 
 function git-clone-recursive() {
   echo "Fetching Git repo $1"
-  if [[ ! -d "$2" ]]; then
-    git clone --recursive -q "$1" "$2"
+  if [[ ! -d "$GIT_REPO_DIR" ]]; then
+    git clone --recursive -q "$1" $GIT_REPO_DIR
   else
-    echo "Skipping since $2 already exists"
+    echo "Skipping since $GIT_REPO_DIR already exists"
   fi
 }
 
 function  git-pull() {
-  cd "$1" || exit
-  echo "Pulling latest changes in $1"
+  cd $GIT_REPO_DIR || exit
+  echo "Pulling latest changes in $GIT_REPO_DIR"
   git pull
   cd - || exit
 }
 
 function clean-build-dir() {
-  if [[ -d "$1" ]]; then
-    echo "Clearing out old builds in $1"
-    sudo rm -f "$1"/*.deb
+  if [[ -d "$GIT_REPO_DIR/$1" ]]; then
+    echo "Clearing out old builds in $GIT_REPO_DIR/$1"
+    sudo rm -f "$GIT_REPO_DIR/$1/*.deb"
   else
-    echo "Making directory, $1, for binaries"
-    mkdir -p "$1"
+    echo "Making directory, $GIT_REPO_DIR/$1, for binaries"
+    mkdir -p "$GIT_REPO_DIR/$1"
   fi
 }
 
@@ -69,6 +70,6 @@ function bump-package-version() {
 }
 
 function install-package() {
-  echo "Installing .deb packages in $1"
-  sudo apt install "$1"
+  echo "Installing built .deb files in $GIT_REPO_DIR/$1"
+  sudo apt install $GIT_REPO_DIR/"$1"/*.deb
 }
