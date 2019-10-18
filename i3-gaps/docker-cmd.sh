@@ -2,11 +2,11 @@
 
 set -e
 
-mkdir -p build/dist
+# autoreconf --force --install
 
-cd build/
+mkdir -p dist/
 
-../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+# ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make
 
 echo 'i3-gaps & i3 with more features' > description-pak
