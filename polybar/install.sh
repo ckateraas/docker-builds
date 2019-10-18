@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -e
+
 PACKAGE_NAME="polybar"
 IMAGE_NAME="$PACKAGE_NAME-builder"
 source ../util.sh

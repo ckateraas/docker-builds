@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-mkdir build
+set -e
 
 cd build
 

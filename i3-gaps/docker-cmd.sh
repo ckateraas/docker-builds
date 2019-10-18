@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-autoreconf --force --install
+set -e
 
 mkdir -p build/dist
 

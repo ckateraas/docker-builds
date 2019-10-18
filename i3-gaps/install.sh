@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -e
+
 PACKAGE_NAME="i3-wm"
 IMAGE_NAME="$PACKAGE_NAME-builder"
 source ../util.sh
