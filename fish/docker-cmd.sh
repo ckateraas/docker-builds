@@ -2,10 +2,10 @@
 
 set -e
 
+mkdir -p build
 cd build
 
 cmake ..
-
 make
 
 echo 'Fish shell' > description-pak
