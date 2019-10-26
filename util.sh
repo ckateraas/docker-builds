@@ -44,8 +44,8 @@ function build-docker-image() {
 }
 
 function build-package() {
-  echo "Building $2"
-  docker run --rm -v "$(pwd)"/"$2":/build "$1" build "$(cat ./version)"
+  echo "Building"
+  docker run --rm -it -v "$(pwd)/$(basename $GIT_REPO_DIR)":/build "$1" /bin/build "$(cat ./version)"
 }
 
 function bump-package-version() {
