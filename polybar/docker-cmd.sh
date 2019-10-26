@@ -20,5 +20,5 @@ checkinstall \
   --pkgversion=$1 \
   --default \
   --pakdir=./dist \
-  --instal=no \
+  --install=no \
   --replaces='polybar'
