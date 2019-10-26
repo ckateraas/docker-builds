@@ -71,5 +71,10 @@ function bump-package-version() {
 
 function install-package() {
   echo "Installing built .deb files in $GIT_REPO_DIR/$1"
-  sudo apt install $GIT_REPO_DIR/"$1"/*.deb
+  sudo apt install "$GIT_REPO_DIR/$1/*.deb"
+}
+
+function install-binary() {
+  echo "Copying $GIT_REPO_DIR/$1 to $2"
+  sudo cp "$GIT_REPO_DIR/$1" "$2"
 }
