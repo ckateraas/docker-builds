@@ -2,23 +2,7 @@
 
 set -e
 
-# autoreconf --force --install
-
-mkdir -p dist/
-
-# ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-make
-
-echo 'i3-gaps & i3 with more features' > description-pak
-
-checkinstall \
-  --type=debian \
-  --maintainer=hvemvet \
-  --nodoc \
-  --pkgname=i3-wm \
-  --pkgversion=$1 \
-  --default \
-  --pakdir=./dist \
-  --instal=no \
-  --provides='x-window-manager' \
-  --replaces='i3,i3-wm'
+mkdir -p ./git-repo/dist
+dpkg-buildpackage --jobs=auto -us -uc
+# All .deb files are placed in .. by dpkg-buildpackage
+cp ../*.deb ./dist
