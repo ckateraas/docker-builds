@@ -12,5 +12,5 @@ git-clone https://github.com/fish-shell/fish-shell
 bump-package-version "$PACKAGE_NAME"
 clean-build-dir "$BUILD_DIR"
 build-docker-image "$IMAGE_NAME"
-build-package "$IMAGE_NAME" "$PACKAGE_NAME"
+build-package "$IMAGE_NAME"
 install-package "$BUILD_DIR"
