@@ -4,13 +4,13 @@ set -e
 
 PACKAGE_NAME="polybar"
 IMAGE_NAME="$PACKAGE_NAME-builder"
-BUILD_DIR="/build/dist"
+BUILD_DIR="build/dist"
+VERSION="3.4.1"
 source ../util.sh
 
 git-clone-recursive https://github.com/polybar/polybar
-#git-pull
-bump-package-version "$PACKAGE_NAME"
-clean-build-dir "$BUILD_DIR"
+git-checkout-tag "$VERSION"
+set-version "$VERSION"
 build-docker-image "$IMAGE_NAME"
 build-package "$IMAGE_NAME"
-install-package "$BUILD_DIR"
+# install-package "$BUILD_DIR"

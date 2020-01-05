@@ -4,13 +4,13 @@ set -e
 
 PACKAGE_NAME="fish"
 IMAGE_NAME="$PACKAGE_NAME-builder"
-BUILD_DIR="/build/dist"
+BUILD_DIR="build/dist"
+VERSION="3.0.2"
 source ../util.sh
 
 git-clone https://github.com/fish-shell/fish-shell
-#git-pull
-bump-package-version "$PACKAGE_NAME"
-clean-build-dir "$BUILD_DIR"
+git-checkout-tag "$VERSION"
+set-version "$VERSION"
 build-docker-image "$IMAGE_NAME"
 build-package "$IMAGE_NAME"
 install-package "$BUILD_DIR"
