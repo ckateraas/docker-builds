@@ -61,7 +61,7 @@ function set-version() {
 }
 
 function bump-package-version() {
-  # VERSION looks like 2.1.3-5
+  # VERSION has the format of "2.1.3-5"
   local VERSION
   local NEXT_VERSION_BODY
   local NEXT_PATCH_VERSION
