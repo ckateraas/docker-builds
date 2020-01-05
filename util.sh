@@ -4,7 +4,7 @@ set -e
 GIT_REPO_DIR="./git-repo"
 
 function git-clone() {
-  echo "Fetching Git repo $1"
+  echo "Fetching Git repo $1 into $GIT_REPO_DIR"
   if [[ ! -d "$GIT_REPO_DIR" ]]; then
     git clone -q "$1" $GIT_REPO_DIR
   else
