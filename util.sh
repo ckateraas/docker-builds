@@ -55,6 +55,11 @@ function build-package() {
   docker run --rm -it -v "$(pwd)/$(basename $GIT_REPO_DIR)":/build "$1" /bin/build "$(cat ./version)"
 }
 
+function set-version() {
+  echo "Version is set to $1"
+  echo "$1" > ./version
+}
+
 function bump-package-version() {
   # VERSION looks like 2.1.3-5
   local VERSION
