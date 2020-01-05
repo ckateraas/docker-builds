@@ -21,7 +21,7 @@ function git-clone-recursive() {
   fi
 }
 
-function  git-pull() {
+function git-pull() {
   cd $GIT_REPO_DIR || exit
   echo "Pulling latest changes in $GIT_REPO_DIR"
   git pull
