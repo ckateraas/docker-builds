@@ -28,6 +28,13 @@ function git-pull() {
   cd - || exit
 }
 
+function git-checkout-tag() {
+  cd $GIT_REPO_DIR || exit
+  echo "Pulling tags/$1 in $GIT_REPO_DIR"
+  git checkout tags/$1
+  cd - || exit
+}
+
 function clean-build-dir() {
   if [[ -d "$GIT_REPO_DIR/$1" ]]; then
     echo "Clearing out old builds in $GIT_REPO_DIR/$1"
