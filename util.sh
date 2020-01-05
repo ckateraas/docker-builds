@@ -82,8 +82,9 @@ function bump-package-version() {
 }
 
 function install-package() {
-  echo "Installing built .deb files in $GIT_REPO_DIR/$1"
-  sudo apt install "$GIT_REPO_DIR/$1/*.deb"
+  local PACKAGE_NAME=$(ls $GIT_REPO_DIR/$1 | grep "\.deb" | sort -nr | head -n1)
+  echo "Installing built $GIT_REPO_DIR/$1/$PACKAGE_NAME"
+  sudo dpkg -i "$GIT_REPO_DIR/$1/$PACKAGE_NAME"
 }
 
 function install-binary() {
