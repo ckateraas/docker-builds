@@ -10,9 +10,9 @@ checkinstall \
   --type=debian \
   --maintainer=hvemvet \
   --nodoc \
-  --pkgname=st \
+  --pkgname=sxhkd \
   --pkgversion="git describe --tags 2> /dev/null" \
   --default \
   --pakdir=./dist \
   --install=no \
-  --replaces='sxhkd'
+  --replaces=sxhkd
