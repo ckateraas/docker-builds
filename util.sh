@@ -3,38 +3,6 @@
 set -e
 GIT_REPO_DIR="./git-repo"
 
-function git-clone() {
-  echo "Fetching Git repo $1 into $GIT_REPO_DIR"
-  if [[ ! -d "$GIT_REPO_DIR" ]]; then
-    git clone -q "$1" $GIT_REPO_DIR
-  else
-    echo "Skipping since $GIT_REPO_DIR already exists"
-  fi
-}
-
-function git-clone-recursive() {
-  echo "Fetching Git repo $1"
-  if [[ ! -d "$GIT_REPO_DIR" ]]; then
-    git clone --recursive -q "$1" $GIT_REPO_DIR
-  else
-    echo "Skipping since $GIT_REPO_DIR already exists"
-  fi
-}
-
-function git-pull() {
-  cd $GIT_REPO_DIR || exit
-  echo "Pulling latest changes in $GIT_REPO_DIR"
-  git pull
-  cd - || exit
-}
-
-function git-checkout-tag() {
-  cd $GIT_REPO_DIR || exit
-  echo "Pulling tags/$1 in $GIT_REPO_DIR"
-  git checkout tags/$1
-  cd - || exit
-}
-
 function clean-build-dir() {
   if [[ -d "$GIT_REPO_DIR/$1" ]]; then
     echo "Clearing out old builds in $GIT_REPO_DIR/$1"

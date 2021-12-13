@@ -1,0 +1,22 @@
+{
+  "include": ["src"],
+  "exclude": ["**/*.test.ts"],
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "ES2015",
+    "moduleResolution": "Node",
+    "strict": true,
+    "skipLibCheck": true,
+    "types": ["jest", "node"],
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "lib": ["esnext"],
+    "inlineSourceMap": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "outDir": "./build",
+    "allowJs": false,
+    "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}
